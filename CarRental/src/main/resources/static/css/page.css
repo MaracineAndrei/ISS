@@ -1,0 +1,147 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #000;
+    color: white;
+    padding: 0 20px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.welcome-message {
+    font-size: 10px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+header form {
+    display: inline-block;
+}
+
+header button {
+    background-color: white;
+    color: #313331;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-color: #000;
+}
+
+header button:hover {
+    background-color: #59c278;
+    color: white;
+}
+
+/* Main content styles */
+main {
+    width: 80%;
+    margin: 20px auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: row; /* Display inline horizontally */
+    gap: 10px;
+    align-items: center; /* Align items vertically centered */
+}
+
+label {
+    font-weight: bold;
+    white-space: nowrap; /* Prevent label text from wrapping */
+}
+
+select, button {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 150px; /* Adjust width as needed */
+}
+
+form button {
+    padding: 10px 20px; /* Increase padding for larger button */
+    font-size: 16px; /* Increase font size for larger button */
+}
+
+form button:hover {
+    background-color: #59c278;
+    transition: background-color 0.3s ease;
+}
+
+/* Image styles */
+img {
+    border-radius: 5px;
+    max-width: 200px; /* Increase max-width for larger image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    main {
+        width: 100%;
+    }
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-buttons {
+        margin-top: 10px;
+    }
+
+    th, td {
+        display: block;
+        width: 100%;
+    }
+
+    th {
+        text-align: center;
+    }
+
+    form {
+        flex-direction: column;
+        gap: 5px;
+    }
+}

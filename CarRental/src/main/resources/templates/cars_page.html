@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Page</title>
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <div class="welcome-message">
+            <h1>Welcome, <span th:text="${user.username}"></span></h1>
+        </div>
+        <div class="header-buttons">
+            <form action="/rentals" method="get">
+                <button type="submit">Display Rents</button>
+            </form>
+            <form action="/logout" method="post">
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+</header>
+<main>
+    <table>
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Rental</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car : ${cars}">
+            <td>
+                <img th:src="@{'/images/' + ${car.image}}" alt="Car Image" width="100">
+            </td>
+            <td th:text="${car.brand}"></td>
+            <td th:text="${car.model}"></td>
+            <td>
+                <form th:action="@{/rentals}" method="post">
+                    <input type="hidden" name="carId" th:value="${car.id}" />
+
+                    <label for="startDate">Start Date:</label>
+                    <select name="startDay" id="startDay">
+                        <option th:each="day : ${days}" th:value="${day}" th:text="${day}"></option>
+                    </select>
+                    <select name="startMonth" id="startMonth">
+                        <option th:each="month : ${months}" th:value="${month}" th:text="${month}"></option>
+                    </select>
+                    <select name="startYear" id="startYear">
+                        <option th:each="year : ${years}" th:value="${year}" th:text="${year}"></option>
+                    </select>
+
+                    <label for="endDate">End Date:</label>
+                    <select name="endDay" id="endDay">
+                        <option th:each="day : ${days}" th:value="${day}" th:text="${day}"></option>
+                    </select>
+                    <select name="endMonth" id="endMonth">
+                        <option th:each="month : ${months}" th:value="${month}" th:text="${month}"></option>
+                    </select>
+                    <select name="endYear" id="endYear">
+                        <option th:each="year : ${years}" th:value="${year}" th:text="${year}"></option>
+                    </select>
+
+                    <button type="submit">Confirm Rental</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

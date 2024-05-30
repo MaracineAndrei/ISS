@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1966&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease;
+}
+
+.form h2 {
+    margin: 0 0 20px;
+    text-align: center;
+    color: #333;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-box i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.input-box input {
+    width: calc(100% - 30px);
+    padding: 10px;
+    padding-left: 18px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-box input:focus {
+    border-color: #5b9be8;
+}
+
+.input-box input[type="submit"] {
+    width: 100%; /* Make the submit button as wide as the input fields */
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 10px 20px; /* Ensuring the button has the same padding as the input fields */
+    border-radius: 5px; /* Matching border radius with input fields */
+}
+
+.input-box input[type="submit"]:hover {
+    background-color: #59c278;
+}
+
+a {
+    display: block;
+    text-align: center;
+    color: #000; /* Black text */
+    text-decoration: none;
+    margin-top: 15px; /* Adding space between links */
+    font-size: 0.8rem; /* Increased font size */
+    padding: 7px 20px; /* Added padding for better clickability */
+    background-color: #fff; /* White background */
+    border: 2px solid transparent; /* Adding border for decoration */
+    border-radius: 5px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition effect */
+}
+
+a:hover {
+    color: #fff; /* Changing text color on hover */
+    background-color: #000; /* Changing background color on hover */
+    border-color: #000; /* Changing border color on hover */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

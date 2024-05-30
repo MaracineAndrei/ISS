@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Rentals</title>
+    <link rel="stylesheet" href="/css/page.css">
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <div class="welcome-message">
+            <h1>Welcome, <span th:text="${user.username}"></span></h1>
+        </div>
+        <div class="header-buttons">
+            <form action="/cars" method="get">
+                <button type="submit">Back to Cars</button>
+            </form>
+            <form action="/logout" method="post">
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+</header>
+<main>
+    <h2>Your Rentals</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Car Brand</th>
+            <th>Car Model</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="rental : ${rentals}" th:if="${rental.userId == user.id}">
+            <td>
+                <span th:each="car : ${cars}" th:if="${car.id == rental.carId}" th:text="${car.brand}"></span>
+            </td>
+            <td>
+                <span th:each="car : ${cars}" th:if="${car.id == rental.carId}" th:text="${car.model}"></span>
+            </td>
+            <td th:text="${rental.startDate}"></td>
+            <td th:text="${rental.endDate}"></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>
