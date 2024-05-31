@@ -3,13 +3,17 @@ package com.example.CarRental.service;
 import com.example.CarRental.model.UsersModel;
 import com.example.CarRental.repository.IUsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsersService {
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     private final IUsersRepository usersRepository;
 
 
@@ -33,14 +37,19 @@ public class UsersService {
             return null;
         }
 
+        String encryptedPassword = passwordEncoder.encode(password);
         UsersModel user = new UsersModel();
         user.setUsername(username);
-        user.setPassword(password);
+        user.setPassword(encryptedPassword);
         user.setEmail(email);
         return usersRepository.save(user);
     }
 
     public UsersModel authentificate(String username, String password) {
-        return usersRepository.findByUsernameAndPassword(username, password).orElse(null);
+        Optional<UsersModel> user = usersRepository.findFirstByUsername(username);
+        if (user.isPresent() && passwordEncoder.matches(password, user.get().getPassword())) {
+            return user.get();
+        }
+        return null;
     }
 }

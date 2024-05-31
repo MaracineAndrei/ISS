@@ -15,7 +15,7 @@ public class AuthController {
 
     private final UsersService usersService;
 
-    public AuthController(UsersService usersService, CarsService carsService) {
+    public AuthController(UsersService usersService) {
         this.usersService = usersService;
     }
 

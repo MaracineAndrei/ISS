@@ -44,8 +44,8 @@
 												"$ref": "AAAAAAGH/CgLOifkT/U="
 											},
 											"font": "Arial;13;0",
-											"left": 48.72998046875,
-											"top": 5,
+											"left": 40.72998046875,
+											"top": 13,
 											"width": 138.00439453125,
 											"height": 13,
 											"text": "DiagramaSecventaUser"
@@ -57,15 +57,16 @@
 												"$ref": "AAAAAAGH/CgLOifkT/U="
 											},
 											"font": "Arial;13;1",
-											"left": 29,
-											"top": 5,
+											"left": 21,
+											"top": 13,
 											"width": 13.72998046875,
 											"height": 13,
 											"text": "sd"
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 24,
+									"left": 16,
+									"top": 8,
 									"width": 1648,
 									"height": 1464,
 									"nameLabel": {
